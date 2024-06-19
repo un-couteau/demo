@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
+    'pages',
+    'coffee'
 ]
 
 MIDDLEWARE = [
@@ -50,6 +54,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'main.urls'
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
+
 
 TEMPLATES = [
     {
