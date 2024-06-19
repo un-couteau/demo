@@ -1,0 +1,11 @@
+{% extends "base/base.html" %}
+{% block navbar %}
+    <nav class="navbar-header">
+        <a href="/">Главная</a>
+        <a href="/orders">Заказы</a>
+        <a href="/logout">Выйти</a>
+{#        {% if user|has_group:"Официант" or user|has_group:"Администратор" %}#}
+{#            <a href="ordercreate">Создать заказ</a>#}
+{#        {% endif %}#}
+    </nav>
+{% endblock %}

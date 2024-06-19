@@ -1,0 +1,15 @@
+{% extends "base/base.html" %}
+{% block content %}
+    <div style="margin: 1%">
+        <p> Заказ: {{ order.id }}</p>
+        <p> Повар: {{ order.cooker.first_name }}</p>
+        <p> Официант: {{ order.waiter.first_name }}</p>
+        <p> Товар: {{ order.name }}</p>
+        <p>Статус:
+        {% if order.status %}
+            Оплачен
+        {% else %}
+            Доставлен
+        {% endif %}</p>
+    </div>
+{% endblock %}

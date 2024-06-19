@@ -1,6 +1,7 @@
-{% extends "base.html" %}
+{% extends "base/base.html" %}
 {% block content %}
 
     Добрый день {{ user.first_name }}
 
+{#    <p>user - {{ user|has_group:"Администратор" }}</p>#}
 {% endblock %}
