@@ -1,0 +1,203 @@
+[
+    {
+        "model": "auth.group",
+        "pk": 1,
+        "fields": {
+            "name": "Сотрудник обслуживания номеров"
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 2,
+        "fields": {
+            "name": "Менеджер"
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 3,
+        "fields": {
+            "name": "Сотрудник предоставления услуг отеля"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "rubies",
+            "password": "cmjcFvB3cI",
+            "first_name": "Николай",
+            "last_name": "Селиванов",
+            "is_active": true,
+            "groups": [1]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "windle",
+            "password": "2PAUAd0gMZ",
+            "first_name": "Никита",
+            "last_name": "Афанасьев",
+            "is_active": true,
+            "groups": [2]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "improv",
+            "password": "bcFFGU16f6",
+            "first_name": "Мария",
+            "last_name": "Кириллова",
+            "is_active": true,
+            "groups": [2]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 4,
+        "fields": {
+            "username": "moving",
+            "password": "A8HPZz9HTG",
+            "first_name": "Анна",
+            "last_name": "Савина",
+            "is_active": true,
+            "groups": [1]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 5,
+        "fields": {
+            "username": "bellum",
+            "password": "ZjXm3JW7RJ",
+            "first_name": "Алиса",
+            "last_name": "Зайцева",
+            "is_active": true,
+            "groups": [3]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 6,
+        "fields": {
+            "username": "siller",
+            "password": "dVMfx1VMFF",
+            "first_name": "Степан",
+            "last_name": "Фадеев",
+            "is_active": true,
+            "groups": [3]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 7,
+        "fields": {
+            "username": "ragman",
+            "password": "25Y9oOkwHn",
+            "first_name": "Ева",
+            "last_name": "Яковлева",
+            "is_active": true,
+            "groups": [1]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 8,
+        "fields": {
+            "username": "fautor",
+            "password": "RJ41C0qynP",
+            "first_name": "Станислав",
+            "last_name": "Зиновьев",
+            "is_active": true,
+            "groups": [3]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 9,
+        "fields": {
+            "username": "coated",
+            "password": "8g2FubQVZH",
+            "first_name": "Андрей",
+            "last_name": "Корнев",
+            "is_active": true,
+            "groups": [3]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 10,
+        "fields": {
+            "username": "fiches",
+            "password": "LO1qRB42GP",
+            "first_name": "Иван",
+            "last_name": "Кондрашов",
+            "is_active": true,
+            "groups": [2]
+        }
+    },
+    {
+        "model": "hotel.order",
+        "pk": 1,
+        "fields": {
+            "date_creation": "2023-06-06",
+            "order_status": "готовится",
+            "room_number": "117",
+            "amount_clients": 1,
+            "hotel_services": "стирка",
+            "payment_status": "принят"
+        }
+    },
+    {
+        "model": "hotel.order",
+        "pk": 2,
+        "fields": {
+            "date_creation": "2023-06-07",
+            "order_status": "готов",
+            "room_number": "402",
+            "amount_clients": 2,
+            "hotel_services": "уборка номера",
+            "payment_status": "оплачен"
+        }
+    },
+    {
+        "model": "hotel.order",
+        "pk": 3,
+        "fields": {
+            "date_creation": "2023-06-08",
+            "order_status": "готовится",
+            "room_number": "324",
+            "amount_clients": 2,
+            "hotel_services": "стирка",
+            "payment_status": "принят"
+        }
+    },
+    {
+        "model": "hotel.order",
+        "pk": 4,
+        "fields": {
+            "date_creation": "2023-06-09",
+            "order_status": "готов",
+            "room_number": "716",
+            "amount_clients": 4,
+            "hotel_services": "освещение",
+            "payment_status": "оплачен"
+        }
+    },
+    {
+        "model": "hotel.order",
+        "pk": 5,
+        "fields": {
+            "date_creation": "2023-06-10",
+            "order_status": "готов",
+            "room_number": "512",
+            "amount_clients": 2,
+            "hotel_services": "завтрак",
+            "payment_status": "принят"
+        }
+    }
+]

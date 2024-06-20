@@ -1,0 +1,10 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+    <h2>Принятые заказы</h2>
+    <ul>
+        {% for order in orders %}
+            <li>Оплата: {{ order.payment_status }} - {{ order }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
