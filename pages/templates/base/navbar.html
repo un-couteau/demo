@@ -4,9 +4,11 @@
         <a class="navbar-brand" href="{% url 'index' %}">Главная</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
+                {% if "Сотрудник обслуживания номеров" in user_groups_string or "Сотрудник предоставления услуг отеля" in user_groups_string %}
+                    <li class="nav-item">
                     <a class="nav-link" href="{% url 'view_orders' %}">Заказы</a>
-                </li>                
+                    </li>
+                {% endif %}
                 {% if "Сотрудник обслуживания номеров" in user_groups_string %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'create_order' %}">Создать заказ</a>

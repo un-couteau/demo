@@ -15,10 +15,16 @@ class OrderFormCreate(forms.ModelForm):
         model = Order
         fields = ['room_number', 'amount_clients', 'hotel_services',]
 
-class OrderStatusForm(forms.ModelForm):
+class OrderStatusPaymentForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ['order_status', 'payment_status']
+        fields = ['payment_status',]
+        read_only_fields = ['room_number', 'amount_clients', 'hotel_services', 'order_status']
+class OrderStatusOrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['order_status',]
+        read_only_fields = ['room_number', 'amount_clients', 'hotel_services', 'payment_status']
 
 
 class ShiftForm(forms.ModelForm):

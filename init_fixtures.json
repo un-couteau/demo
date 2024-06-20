@@ -25,7 +25,7 @@
         "pk": 1,
         "fields": {
             "username": "rubies",
-            "password": "cmjcFvB3cI",
+            "password": "pbkdf2_sha256$720000$TbKbkyPKB1xQZ4aeUOsdae$ekXprvrOfLwOFN4qX0V0TLtWqupOIdOhUe4XRrZP5fg=",
             "first_name": "Николай",
             "last_name": "Селиванов",
             "is_active": true,
@@ -37,10 +37,12 @@
         "pk": 2,
         "fields": {
             "username": "windle",
-            "password": "2PAUAd0gMZ",
+            "password": "pbkdf2_sha256$720000$t09G5Wnl7IRDGgSM6Mibie$Jas8AT9go21yNFUM7Uj+t6vb/mIkEpcFDnUgZVqrIB8=",
             "first_name": "Никита",
             "last_name": "Афанасьев",
             "is_active": true,
+            "is_staff": true,
+            "is_superuser": true,
             "groups": [2]
         }
     },
@@ -49,10 +51,12 @@
         "pk": 3,
         "fields": {
             "username": "improv",
-            "password": "bcFFGU16f6",
+            "password": "pbkdf2_sha256$720000$TfX7Df5DZXRKSmg6VmUIQF$quS0lidlfEY9ict4biafPsBAbZYm8Qqt+EWQ8PufrlM=",
             "first_name": "Мария",
             "last_name": "Кириллова",
             "is_active": true,
+            "is_staff": true,
+            "is_superuser": true,
             "groups": [2]
         }
     },
@@ -61,7 +65,7 @@
         "pk": 4,
         "fields": {
             "username": "moving",
-            "password": "A8HPZz9HTG",
+            "password": "pbkdf2_sha256$720000$K9ZDYPidaFHvJsTKZvtsgI$f8i17qp5UsfCnYPLjLtdj8gp+oxZDPbHlG8pnrJuCOM=",
             "first_name": "Анна",
             "last_name": "Савина",
             "is_active": true,
@@ -73,7 +77,7 @@
         "pk": 5,
         "fields": {
             "username": "bellum",
-            "password": "ZjXm3JW7RJ",
+            "password": "pbkdf2_sha256$720000$nu5avEGlWqmidkxHnDiI96$myBxMIY7rlPCLxTLRAm0ibbMnIFzhaVu7eMncFI/HZQ=",
             "first_name": "Алиса",
             "last_name": "Зайцева",
             "is_active": true,
@@ -85,7 +89,7 @@
         "pk": 6,
         "fields": {
             "username": "siller",
-            "password": "dVMfx1VMFF",
+            "password": "pbkdf2_sha256$720000$q4FNIsagmBNFkNJXKmvXwH$GLsjPDLuU/gISCITjiKcX3DMrp6FraTMrq143bjno+c=",
             "first_name": "Степан",
             "last_name": "Фадеев",
             "is_active": true,
@@ -97,7 +101,7 @@
         "pk": 7,
         "fields": {
             "username": "ragman",
-            "password": "25Y9oOkwHn",
+            "password": "pbkdf2_sha256$720000$89yJF1CZqkxuEVWPDni9BA$z/rFS8yZ0S9B31k2JvtM504SrDTiOFmp9fVVI7Dx2cs=",
             "first_name": "Ева",
             "last_name": "Яковлева",
             "is_active": true,
@@ -109,7 +113,7 @@
         "pk": 8,
         "fields": {
             "username": "fautor",
-            "password": "RJ41C0qynP",
+            "password": "pbkdf2_sha256$720000$N0QFoRDz8NNXDLXTx3WcKs$oc50R8prNWsOccay1uRJmU9ts8uEAk/JpK7mTJ9LYNQ=",
             "first_name": "Станислав",
             "last_name": "Зиновьев",
             "is_active": true,
@@ -121,7 +125,7 @@
         "pk": 9,
         "fields": {
             "username": "coated",
-            "password": "8g2FubQVZH",
+            "password": "pbkdf2_sha256$720000$qycK7VwvuLPKGR198XRnQT$kX9haoJOlr8ArK7w3YQ98Pvk14qWSCEAMFvotfEwCPg=",
             "first_name": "Андрей",
             "last_name": "Корнев",
             "is_active": true,
@@ -133,10 +137,12 @@
         "pk": 10,
         "fields": {
             "username": "fiches",
-            "password": "LO1qRB42GP",
+            "password": "pbkdf2_sha256$720000$YyBtSqL2bJc8UHvqotTjBL$XQP2N+1HfdRW7CvzjkFH966/knAp1oyxRtlQMIsj9g0=",
             "first_name": "Иван",
             "last_name": "Кондрашов",
             "is_active": true,
+            "is_staff": true,
+            "is_superuser": true,
             "groups": [2]
         }
     },

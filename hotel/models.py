@@ -15,7 +15,7 @@ class Order(models.Model):
     ]
 
     date_creation = models.DateField(verbose_name='Дата создания', auto_now_add=True)
-    order_status = models.CharField(max_length=255, choices=order_status_choices, default='готовиться', verbose_name='Статус заказа')
+    order_status = models.CharField(max_length=255, choices=order_status_choices, default='готовится', verbose_name='Статус заказа')
     room_number = models.CharField(max_length=255, verbose_name='Номер комнаты')
     amount_clients = models.IntegerField(verbose_name='Количество клиентов')
     hotel_services = models.CharField(max_length=255, verbose_name='Услуги')
@@ -33,7 +33,7 @@ class OrderUserList(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self}"
+        return f"Связь {self.id} | {self.user.username} - Заказ {self.order.id}"
 
     class Meta:
         verbose_name = 'Связанный заказ'
@@ -46,6 +46,17 @@ class Shift(models.Model):
     def __str__(self):
         return f"{self.date_start} - {self.date_end} | ID {self.id}"
 
+    class Meta:
+        verbose_name = 'Смена'
+        verbose_name_plural = 'Смены'
+
 class UserList(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     shift = models.ForeignKey(Shift, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.user.username} | {self.shift.date_start} - {self.shift.date_end}"
+
+    class Meta:
+        verbose_name = 'Связанная смена'
+        verbose_name_plural = 'Связанные смены'

@@ -1,10 +1,10 @@
 {% extends "base/base.html" %}
 
 {% block content %}
-    <h2>Изменить статус заказа</h2>
+    <h2>Изменение статуса</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Обновить</button>
+        <button type="submit">Изменить</button>
     </form>
 {% endblock %}

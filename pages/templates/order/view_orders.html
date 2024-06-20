@@ -13,10 +13,8 @@
                         <p class="card-text">Команта: {{ order.room_number }}</p>
                         <p class="card-text">Кол-во клиентов: {{ order.amount_clients }}</p>
                         <p class="card-text">Услуги: {{ order.hotel_services }}</p>
-                        {% if 'Сотрудник предоставления услуг отеля' in user_groups_string %}
-                            <p class="card-text">Статус услуги: {{ order.get_order_status_display }}</p>
-                            <p class="card-text">Статус оплаты: {{ order.get_payment_status_display }}</p>
-                        {% endif %}
+                        <p class="card-text">Статус услуги: {{ order.get_order_status_display }}</p>
+                        <p class="card-text">Статус оплаты: {{ order.get_payment_status_display }}</p>
                     </div>
                 </div>
             </div>
