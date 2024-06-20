@@ -1,13 +1,25 @@
 {% extends "base/base.html" %}
 
 {% block content %}
-    <h2>Заказы</h2>
-    <ul>
+    <h2>Все заказы</h2>
+    <div class="row">
         {% for order in orders %}
-            <li>
-                {{ order.details }} - {{ order.get_order_status_display }}
-                <a href="{% url 'update_order_status' order.id %}">Изменить статус</a>
-            </li>
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="/order/{{ order.id }}">Заказ {{ order.id }}</a>
+                        </h5>
+                        <p class="card-text">Команта: {{ order.room_number }}</p>
+                        <p class="card-text">Кол-во клиентов: {{ order.amount_clients }}</p>
+                        <p class="card-text">Услуги: {{ order.hotel_services }}</p>
+                        {% if 'Сотрудник предоставления услуг отеля' in user_groups_string %}
+                            <p class="card-text">Статус услуги: {{ order.get_order_status_display }}</p>
+                            <p class="card-text">Статус оплаты: {{ order.get_payment_status_display }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}

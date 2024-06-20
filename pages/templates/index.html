@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-{#    Привет {{ user.first_name }} {{ user.last_name }}#}
-{#    t: {{ user_groups_string }}#}
+    <p>Привет {{ user.first_name }} {{ user.last_name }}</p>
+    <p>Вы как "{{ user_groups_string }}"</p>
 {% endblock %}

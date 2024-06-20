@@ -6,11 +6,12 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'view_orders' %}">Заказы</a>
+                </li>                
+                {% if "Сотрудник обслуживания номеров" in user_groups_string %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'create_order' %}">Создать заказ</a>
                 </li>
-
-                {#                <li class="nav-item">#}
-                {#                    <a class="nav-link" href="{% url 'login' %}">Выйти</a>#}
-                {#                </li>#}
+                {% endif %}
                 {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">Выйти</a>
@@ -20,7 +21,6 @@
                         <a class="nav-link" href="{% url 'login' %}">Войти</a>
                     </li>
                 {% endif %}
-
             </ul>
             {% if 'Менеджер' in user_groups_string %}
                 <a class="nav-link" href="/admin">Панель менеджера</a>

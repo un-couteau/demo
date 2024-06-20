@@ -3,4 +3,6 @@ from .models import *
 # Register your models here.
 
 admin.site.register(Order)
+admin.site.register(OrderUserList)
 admin.site.register(Shift)
+admin.site.register(UserList)

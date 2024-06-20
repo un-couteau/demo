@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render, get_object_or_404, redirect
 
-from hotel.forms import OrderForm, OrderStatusForm
+from hotel.forms import OrderForm, OrderStatusForm, OrderFormCreate
 from hotel.models import Order
 
 
@@ -12,10 +12,6 @@ def index(request):
     return render(request, 'index.html')
 
 
-def is_manager(user):
-    return user.groups.filter(name='Менеджер').exists()
-
-
 def is_room_service(user):
     return user.groups.filter(name='Сотрудник обслуживания номеров').exists()
 
@@ -23,58 +19,39 @@ def is_room_service(user):
 def is_hotel_service(user):
     return user.groups.filter(name='Сотрудник предоставления услуг отеля').exists()
 
+def is_room_or_hotel_service(user):
+    return is_room_service(user) or is_hotel_service(user)
 
-@login_required
-@user_passes_test(is_hotel_service)
-# def view_orders(request):
-#     orders = Order.objects.filter(status='accepted')
-#     return render(request, 'order/view_orders.html', {'orders': orders})
-# @login_requiredsad
-@user_passes_test(is_hotel_service)
-def view_orders_for_hotel(request):
-    # if request.user.groups.filter(name="Сотрудник предоставления услуг отеля"):
-    orders = Order.objects.filter(payment_status='принят')
-    return render(request, 'order/views_orders_for_hotel.html', {'orders': orders})
+@user_passes_test(is_room_or_hotel_service)
+def view_orders(request):
+    if request.user.groups.filter(name="Сотрудник предоставления услуг отеля"):
+        orders = Order.objects.all()
+        return render(request, 'order/view_orders.html', {'orders': orders})
+    if request.user.groups.filter(name='Сотрудник обслуживания номеров'):
+        orders = Order.objects.filter(payment_status='')
+        return render(request, 'order/view_orders.html', {'orders': orders})
+    return render(request, 'error.html')
 
+@user_passes_test(is_room_or_hotel_service)
+def view_order_id(request, order_id):
+    if request.user.groups.filter(name="Сотрудник предоставления услуг отеля"):
+        order = Order.objects.get(id=order_id)
+        return render(request, 'order/views_orders_for_hotel.html', {'order': order})
+    if request.user.groups.filter(name='Сотрудник обслуживания номеров'):
 
-@login_required
-@user_passes_test(is_hotel_service)
-def update_order_status(request, order_id):
-    order = get_object_or_404(Order, id=order_id)
-    if request.method == 'POST':
-        form = OrderStatusForm(request.POST, instance=order)
-        if form.is_valid():
-            form.save()
-            return redirect('view_orders')
-    else:
-        form = OrderStatusForm(instance=order)
-    return render(request, 'order/update_order_status.html', {'form': form, 'order': order})
+        order = Order.objects.get(id=order_id)
+        return render(request, 'order/views_orders_for_hotel.html', {'order': order})
+    return render(request, 'error.html')
 
-
-@login_required
 @user_passes_test(is_room_service)
 def create_order(request):
     if request.method == 'POST':
-        form = OrderForm(request.POST)
+        form = OrderFormCreate(request.POST)
         if form.is_valid():
             order = form.save(commit=False)
-            order.waiter = request.user
+            order.waiter = request.user  # Если нужно связать заказ с текущим пользователем
             order.save()
             return redirect('view_orders')
     else:
-        form = OrderForm()
+        form = OrderFormCreate()
     return render(request, 'order/create_order.html', {'form': form})
-
-
-@login_required
-@user_passes_test(is_room_service)
-def update_order_status_room_service(request, order_id):
-    order = get_object_or_404(Order, id=order_id)
-    if request.method == 'POST':
-        form = OrderStatusForm(request.POST, instance=order)
-        if form.is_valid():
-            form.save()
-            return redirect('view_orders')
-    else:
-        form = OrderStatusForm(instance=order)
-    return render(request, 'order/update_order_status.html', {'form': form, 'order': order})

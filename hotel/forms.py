@@ -7,8 +7,13 @@ from hotel.models import Order, Shift, UserList
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ['date_creation', 'order_status', 'room_number', 'amount_clients', 'hotel_services', 'payment_status']
+        fields = ['order_status', 'payment_status']
+        read_only_fields = ['date_creation', 'room_number', 'amount_clients', 'hotel_services',]
 
+class OrderFormCreate(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['room_number', 'amount_clients', 'hotel_services',]
 
 class OrderStatusForm(forms.ModelForm):
     class Meta:
